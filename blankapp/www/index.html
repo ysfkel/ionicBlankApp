@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-app="starter">
+
+    <ion-pane>
+      <ion-header-bar class="bar-energized">
+        <button class="button button-calm">Click!</button>
+        <h1 class="title">Ionic Blank Starter</h1>
+      </ion-header-bar>
+      <div class="bar bar-subheader">
+        <h2 class="title">sub header</h2>
+      </div>
+      <ion-content class="padding has-subheader">
+      <p>
+          So all I'm going to do is add a Padding class to this content here, the ion-content-tag, so class padding. Save it, and now our application is going to have a little bit of Padding in my content. So one of the first things you notice in working with Ionic is that there's going to be a little bit of difference between what the manual sort of says to do and also what you end up with when you're actually building an application. These sort of classes are all based on generic div tags, and most of the time, you'll be putting them into something like an ion-header-bar, or ion-content, or sometimes it'll be like navigation or tabs, so this is something else here.
+
+In addition to
+      </p>
+      <p>
+      <button class="button button-calm">  <i class="icon ion-ionic"> ion</i></button>
+       <button class="button button-calm icon ion-ionic icon-left">ION</button>
+        </p>
+      <button class="button ">Say hi!</button>
+            <button class="button button-block">Say blocki!</button>
+      </ion-content>
+      
+      
+        <ion-footer-bar class="bar-energized">
+        <h1 class="title">Footer</h1>
+      </ion-footer-bar>
+    </ion-pane>
+  </body>
+</html>
