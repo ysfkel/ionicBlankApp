@@ -18,7 +18,11 @@ angular.module('starter', ['ionic'])
   });
 })
 
-.config(function($stateProvider,$urlRouterProvider){
+.config(function($stateProvider,$urlRouterProvider,$ionicConfigProvider){
+  
+    //   $ionicConfigProvider.tabs('primary').position('top');
+     // $ionicConfigProvider.tabs('secondary').position('bottom');
+       $ionicConfigProvider.tabs.position('bottom');
   
       $stateProvider
        .state('tabs',{
