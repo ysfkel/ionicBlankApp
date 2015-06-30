@@ -18,13 +18,68 @@ angular.module('starter', ['ionic'])
   });
 })
 
-.controller('listController',function($scope,$http) {
+.config(function($stateProvider,$urlRouterProvider){
+  
+      $stateProvider
+       .state('tabs',{
+          url:'/tab',
+          abstract:true,
+          templateUrl:'templates/tabs.html'
+       })
+       .state('tabs.home',{
+         url:'/home',
+         views:{
+          'home-tab':{
+               templateUrl:'templates/home.html'
+           }
+         }
+       })
+       .state('tabs.list',{
+         url:'/list',
+         views:{
+          'list-tab':{
+               templateUrl:'templates/list.html',
+               controller:'listController'
+           }
+         }
+       })
+        .state('tabs.details',{
+         url:'/list/:aid',
+         views:{
+          'list-tab':{
+               templateUrl:'templates/detail.html',
+               controller:'listController'
+           }
+         }
+       })
+       $urlRouterProvider
+         .otherwise('/tab/home');
+})
+
+.controller('listController',function($scope,$http,$state) {
      $http.get('js/data.json').success(function(data){
+       
        $scope.artists=data.speakers;
+       
+       $scope.selectedArtist=$state.params.aid;
+       
        $scope.onItemDelete=function(item){
     
            $scope.artists.splice(  $scope.artists.indexOf(item),1);
+       };
+       
+   
+       $scope.toggleStar=function(item){
+         item.star=!item.star;
        }
+       
+       $scope.doRefresh=function(){
+              $http.get('js/data.json').success(function(data){
+                      $scope.artists=data.speakers;
+                      $scope.$broadcast('scroll.refreshComplete')
+              })
+       }
+       
        $scope.moveItem=function(item,fromIndex,toIndex){
          $scope.artists.splice(fromIndex,1);
             $scope.artists.splice(toIndex,0,item);
@@ -32,3 +87,7 @@ angular.module('starter', ['ionic'])
 
      });
 });
+
+
+
+
